@@ -1285,7 +1285,7 @@ paths:
       summary: Statistics about all of Flux Fusion Swap
       description: >-
         Give statistical information about all swapp thata happened on Flux Fusion such as number of swaps, it's directions, status and more.
-      operationId: swapactivechains
+      operationId: swapstats
       responses:
         "200":
           description: OK
