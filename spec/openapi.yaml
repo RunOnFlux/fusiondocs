@@ -1278,6 +1278,118 @@ paths:
               example:
                 status: success
                 data: "0xdc1ea3f3fb2c788ba88d0b90ff88e613c1ea1fdcd83af53debf41c9b6bb49b69"
+  /swap/stats:
+    get:
+      tags:
+        - Swap
+      summary: Statistics about all of Flux Fusion Swap
+      description: >-
+        Give statistical information about all swapp thata happened on Flux Fusion such as number of swaps, it's directions, status and more.
+      operationId: swapactivechains
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: "#/components/schemas/status"
+                  data:
+                    type: object
+                    description: General swap statistics information
+                    properties:
+                      totalSwaps:
+                        type: number
+                        description: Total swaps registered on Flux Fusion
+                      swapsFinished:
+                        type: number
+                        description: Total finished swaps
+                      swapsNew:
+                        type: number
+                        description: Swaps that are in 'new' state
+                      swapsWaiting:
+                        type: number
+                        description: Swaps that are in 'waiting' status
+                      swapsExchanging:
+                        type: number
+                        description: Swaps that are in 'exchanging' status
+                      swapsExpired:
+                        type: number
+                        description: Swaps that are in 'expired' status
+                      swapsHold:
+                        type: number
+                        description: Swaps that are in 'hold' status
+                      swapsConfirming:
+                        type: number
+                        description: Swaps that are in 'confirmed' status
+                      swapsDust:
+                        type: number
+                        description: Swaps that are in 'dust' status
+                      feeCaptured:
+                        type: number
+                        description: Total fee captured on swaps in Flux
+                      mainFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux main chain
+                      kdaFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux KDA chain
+                      ethFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux ETH chain
+                      bscFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux BSC chain
+                      swapsToMain:
+                        type: number
+                        description: Swaps that are swapping to main chain
+                      swapsToKDA:
+                        type: number
+                        description: Swaps that are swapping to kda chain
+                      swapsToETH:
+                        type: number
+                        description: Swaps that are swapping to eth chain
+                      swapsToBSC:
+                        type: number
+                        description: Swaps that are swapping to bsc chain
+                      swapsFromMain:
+                        type: number
+                        description: Swaps that are swapping from main chain
+                      swapsFromKDA:
+                        type: number
+                        description: Swaps that are swapping from kda chain
+                      swapsFromETH:
+                        type: number
+                        description: Swaps that are swapping from eth chain
+                      swapsFromBSC:
+                        type: number
+                        description: Swaps that are swapping from bsc chain
+              example:
+                status: success
+                data:
+                  totalSwaps: 1234
+                  swapsFinished: 1200
+                  swapsNew: 24
+                  swapsWaiting: 0
+                  swapsExchanging: 2
+                  swapsExpired: 3
+                  swapsHold: 0
+                  swapsConfirming: 2
+                  swapsDust: 3
+                  mainFeeCaptured: 50
+                  kdaFeeCaptured: 40
+                  ethFeeCaptured: 42
+                  bscFeeCaptured: 69
+                  swapsToMain: 100
+                  swapsToKDA: 2
+                  swapsToETH: 20
+                  swapsToBSC: 50
+                  swapsFromMain: 420
+                  swapsFromKDA: 42
+                  swapsFromETH: 69
+                  swapsFromBSC: 69
   /swap/activechains:
     get:
       tags:
@@ -1507,7 +1619,7 @@ paths:
                       amount: 50000
                     - confirmations: 30
                       amount: 100000
-                  fees:   
+                  fees:
                     snapshot:
                       percentage: 0
                       kda: 5
@@ -1537,13 +1649,13 @@ paths:
                     - chain: kda
                       address: fluxswap
                     - chain: eth
-                      address: '0x134e4c74c670adefdcb2476df6960d9297bc7dad'
+                      address: "0x134e4c74c670adefdcb2476df6960d9297bc7dad"
                     - chain: bsc
-                      address: '0x9b192227da99b5a50d037b10c965609ed83c43d7'
+                      address: "0x9b192227da99b5a50d037b10c965609ed83c43d7"
                     - chain: trx
-                      address: 'TA7U2PTnHDyhHBns3X6NsDndjZDBUE3oUa'
+                      address: "TA7U2PTnHDyhHBns3X6NsDndjZDBUE3oUa"
                     - chain: sol
-                      address: '3q79qsEp9CoCpNE2poy5stVKmXqWruLdwxn5KWNHeUNk'
+                      address: "3q79qsEp9CoCpNE2poy5stVKmXqWruLdwxn5KWNHeUNk"
   /swap/detail:
     get:
       tags:
@@ -1610,8 +1722,8 @@ paths:
                         type: number
                         description: >-
                           Actual or expected fee. That amount will be sent less than amountFrom as swaps of Flux are always 1 to 1 rate
-                      status: 
-                        $ref: '#/components/schemas/exchangestatus'
+                      status:
+                        $ref: "#/components/schemas/exchangestatus"
                       timestamp:
                         type: number
                         description: >-
@@ -1701,8 +1813,8 @@ paths:
                           description: >-
                             Chain on which user whishes to receive coins, buying chain
                         addressFrom:
-                           type: string
-                           description: >-
+                          type: string
+                          description: >-
                             Users depositing address of chainFrom
                         addressTo:
                           type: string
@@ -1720,8 +1832,8 @@ paths:
                           type: number
                           description: >-
                             Actual or expected fee. That amount will be sent less than amountFrom as swaps of Flux are always 1 to 1 rate
-                        status: 
-                          $ref: '#/components/schemas/exchangestatus'
+                        status:
+                          $ref: "#/components/schemas/exchangestatus"
                         timestamp:
                           type: number
                           description: >-
@@ -1764,9 +1876,9 @@ paths:
                     expectedAmountTo: 62279.94645588
                     chainFrom: eth
                     chainTo: main
-                    addressFrom: '0xaccad76546ce0500ebc07b4d298608b8e94899e2'
+                    addressFrom: "0xaccad76546ce0500ebc07b4d298608b8e94899e2"
                     addressTo: t1a7jWp5uy6SZwApWt9XB4gKjQmwzxGqwdq
-                    txidFrom: '0x4265042b38170f89204bf597c391a3a6d1b1e0dd826cc33a1f4dd02dcd08219a'
+                    txidFrom: "0x4265042b38170f89204bf597c391a3a6d1b1e0dd826cc33a1f4dd02dcd08219a"
                     zelid: 1CbErtneaX2QVyUfwU7JGB7VzvPgrgc3uC
                     fee: 66
                     status: finished
@@ -1815,7 +1927,7 @@ paths:
             example:
               chainFrom: eth
               chainTo: main
-              addressFrom: '0xaccad76546ce0500ebc07b4d298608b8e94899e2'
+              addressFrom: "0xaccad76546ce0500ebc07b4d298608b8e94899e2"
               addressTo: t1a7jWp5uy6SZwApWt9XB4gKjQmwzxGqwdq
       responses:
         "200":
@@ -1858,10 +1970,10 @@ paths:
                 data:
                   chainFrom: eth
                   chainTo: main
-                  addressFrom: '0xaccad76546ce0500ebc07b4d298608b8e94899e2'
+                  addressFrom: "0xaccad76546ce0500ebc07b4d298608b8e94899e2"
                   addressTo: t1a7jWp5uy6SZwApWt9XB4gKjQmwzxGqwdq
                   zelid: 1K6nyw2VjV6jEN1f1CkbKn9htWnYkQabbR
-                  createdAt: '2021-09-12T09:36:11.129Z'
+                  createdAt: "2021-09-12T09:36:11.129Z"
   /swap/create:
     post:
       tags:
@@ -1908,9 +2020,9 @@ paths:
               amountFrom: 631.625
               chainFrom: eth
               chainTo: main
-              addressFrom: '0xaccad76546ce0500ebc07b4d298608b8e94899e2'
+              addressFrom: "0xaccad76546ce0500ebc07b4d298608b8e94899e2"
               addressTo: t1a7jWp5uy6SZwApWt9XB4gKjQmwzxGqwdq
-              txidFrom: '0x7c29c30573a1205a851b7d47c504959a66b7045f9d8dfcd83322a11bc74c323a'
+              txidFrom: "0x7c29c30573a1205a851b7d47c504959a66b7045f9d8dfcd83322a11bc74c323a"
       responses:
         "200":
           description: OK
@@ -1952,7 +2064,7 @@ paths:
                         type: number
                         description: >-
                           Expected fee based on chain and user supplied amountFrom
-                      status: 
+                      status:
                         type: string
                         description: Status of swap. Always new for newly created swaps
                       expectedAmountFrom:
@@ -1973,13 +2085,13 @@ paths:
                 data:
                   chainFrom: eth
                   chainTo: main
-                  addressFrom: '0xaccad76546ce0500ebc07b4d298608b8e94899e2'
+                  addressFrom: "0xaccad76546ce0500ebc07b4d298608b8e94899e2"
                   addressTo: t1a7jWp5uy6SZwApWt9XB4gKjQmwzxGqwdq
                   zelid: 1K6nyw2VjV6jEN1f1CkbKn9htWnYkQabbR
                   timestamp: 1631439372297
                   expectedAmountFrom: 631.625
                   expectedAmountTo: 625.625
-                  txidFrom: '0x7c29c30573a1205a851b7d47c504959a66b7045f9d8dfcd83322a11bc74c323a'
+                  txidFrom: "0x7c29c30573a1205a851b7d47c504959a66b7045f9d8dfcd83322a11bc74c323a"
                   fee: 6
                   confsRequired: 4
 components:

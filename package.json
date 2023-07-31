@@ -1,7 +1,7 @@
 {
   "name": "fusiondocs",
   "version": "1.1.0",
-  "author": "Zelcore Technologies",
+  "author": "Influx Technologie Limited",
   "private": true,
   "license": "UNLICENSED",
   "repository": {
@@ -12,7 +12,7 @@
   "contributors": [
     {
       "name": "Tadeas Kmenta",
-      "email": "tadeas@zelcore.io"
+      "email": "tadeas@runonflux.io"
     }
   ],
   "scripts": {
