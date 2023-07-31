@@ -1128,6 +1128,117 @@ paths:
               example:
                 status: success
                 data: '0xdc1ea3f3fb2c788ba88d0b90ff88e613c1ea1fdcd83af53debf41c9b6bb49b69'
+  /swap/stats:
+    get:
+      tags:
+        - Swap
+      summary: Statistics about all of Flux Fusion Swap
+      description: 'Give statistical information about all swapp thata happened on Flux Fusion such as number of swaps, it''s directions, status and more.'
+      operationId: swapstats
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/status'
+                  data:
+                    type: object
+                    description: General swap statistics information
+                    properties:
+                      totalSwaps:
+                        type: number
+                        description: Total swaps registered on Flux Fusion
+                      swapsFinished:
+                        type: number
+                        description: Total finished swaps
+                      swapsNew:
+                        type: number
+                        description: Swaps that are in 'new' state
+                      swapsWaiting:
+                        type: number
+                        description: Swaps that are in 'waiting' status
+                      swapsExchanging:
+                        type: number
+                        description: Swaps that are in 'exchanging' status
+                      swapsExpired:
+                        type: number
+                        description: Swaps that are in 'expired' status
+                      swapsHold:
+                        type: number
+                        description: Swaps that are in 'hold' status
+                      swapsConfirming:
+                        type: number
+                        description: Swaps that are in 'confirmed' status
+                      swapsDust:
+                        type: number
+                        description: Swaps that are in 'dust' status
+                      feeCaptured:
+                        type: number
+                        description: Total fee captured on swaps in Flux
+                      mainFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux main chain
+                      kdaFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux KDA chain
+                      ethFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux ETH chain
+                      bscFeeCaptured:
+                        type: number
+                        description: Total fee captured on Flux BSC chain
+                      swapsToMain:
+                        type: number
+                        description: Swaps that are swapping to main chain
+                      swapsToKDA:
+                        type: number
+                        description: Swaps that are swapping to kda chain
+                      swapsToETH:
+                        type: number
+                        description: Swaps that are swapping to eth chain
+                      swapsToBSC:
+                        type: number
+                        description: Swaps that are swapping to bsc chain
+                      swapsFromMain:
+                        type: number
+                        description: Swaps that are swapping from main chain
+                      swapsFromKDA:
+                        type: number
+                        description: Swaps that are swapping from kda chain
+                      swapsFromETH:
+                        type: number
+                        description: Swaps that are swapping from eth chain
+                      swapsFromBSC:
+                        type: number
+                        description: Swaps that are swapping from bsc chain
+              example:
+                status: success
+                data:
+                  totalSwaps: 1234
+                  swapsFinished: 1200
+                  swapsNew: 24
+                  swapsWaiting: 0
+                  swapsExchanging: 2
+                  swapsExpired: 3
+                  swapsHold: 0
+                  swapsConfirming: 2
+                  swapsDust: 3
+                  mainFeeCaptured: 50
+                  kdaFeeCaptured: 40
+                  ethFeeCaptured: 42
+                  bscFeeCaptured: 69
+                  swapsToMain: 100
+                  swapsToKDA: 2
+                  swapsToETH: 20
+                  swapsToBSC: 50
+                  swapsFromMain: 420
+                  swapsFromKDA: 42
+                  swapsFromETH: 69
+                  swapsFromBSC: 69
   /swap/activechains:
     get:
       tags:
