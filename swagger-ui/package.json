@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/swagger-ui-dist/-/swagger-ui-dist-3.52.5.tgz",
   "_shasum": "9aa8101a2be751f5145195b9e048bc21b12fac60",
   "_spec": "swagger-ui-dist@^3.20.1",
-  "_where": "/home/travis/build/ZelCore-io/fusiondocs/node_modules/swagger-repo",
+  "_where": "/home/travis/build/RunOnFlux/fusiondocs/node_modules/swagger-repo",
   "bugs": {
     "url": "https://github.com/swagger-api/swagger-ui/issues"
   },
