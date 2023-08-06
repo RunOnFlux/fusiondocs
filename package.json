@@ -1,12 +1,12 @@
 {
   "name": "fusiondocs",
   "version": "1.1.0",
-  "author": "Influx Technologie Limited",
+  "author": "Influx Technologies Limited",
   "private": true,
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zelcore-io/fusiondocs.git"
+    "url": "git://github.com/runonflux/fusiondocs.git"
   },
   "description": "Fusion documentation",
   "contributors": [

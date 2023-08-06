@@ -14,7 +14,7 @@ info:
     Currently supported chains are: Main chain, Ethereum (ETH) chain, Binance Smart Chain (BSC) chain, Tron (TRX), Solana (SOL) and Kadena (KDA) chain where fusion operates on chain ID 0.
 externalDocs:
   description: Fusion
-  url: "https://github.com/zelcore-io/fusion"
+  url: "https://github.com/runonflux/fusion"
 tags:
   - name: General
     description: >-

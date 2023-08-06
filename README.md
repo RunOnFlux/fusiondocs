@@ -1,7 +1,7 @@
 # Fusion documentation - OpenAPI Specification
-[![Build Status](https://app.travis-ci.com/ZelCore-io/fusiondocs.svg?branch=master)](https://travis-ci.com/zelcore-io/fusiondocs)
+[![Build Status](https://app.travis-ci.com/runonflux/fusiondocs.svg?branch=master)](https://travis-ci.com/runonflux/fusiondocs)
 
-[Fusion](https://github.com/zelcore-io/fusion/)
+[Fusion](https://github.com/runonflux/fusion/)
 
 ## Links
 

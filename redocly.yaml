@@ -1,8 +1,7 @@
-
 apiTitle: fusiondocs
 splitSpec: false
 codeSamples: true
 swaggerUI: true
 travis: true
-repo: zelcore-io/fusiondocs
+repo: runonflux/fusiondocs
 oasVersion: 3.0.0
