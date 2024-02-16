@@ -1050,6 +1050,73 @@ paths:
                       message: 1630141888587p0z5ck835iiovp60ij0xg30c0zak6avh2fsp1avytg8
                       signature: INEBIbSd629/rXFy4zC5HQUeNb6eivrGB9XHMNusKoUmNfKioUrun7nwVKA0FcIk0/DK59RVTnXMdJL5amtIK4U=
                       fee: 11
+  /coinbase/multiavailable:
+    get:
+      tags:
+        - Coinbase
+      summary: Available multi claim of Flux address for coinbase
+      description: >-
+        Displays possibility of available combined multi coinbase claim and swap of given Flux address of Fusion coinbase statistics. Node operators can claim without a need for whitelist, miners and pools have to be whitelisted first.
+      operationId: coinbasemultiavailable
+      parameters:
+        - in: query
+          name: address
+          required: true
+          schema:
+            type: string
+          description: Flux main chain address
+          example: t1TYxynkJE12avxWfd46haSrFEXZN8vMKjU
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: "#/components/schemas/status"
+                  data:
+                    type: object
+                    description: Summary of possible multi coinbase claim for a given address
+                    properties:
+                      address:
+                        type: string
+                        description: >-
+                          Given main chain address
+                      totalClaim:
+                        type: number
+                        description: >-
+                          Total ramount that will be claimed on eligible chains
+                      amount:
+                        type: number
+                        description: >-
+                          Total received coinbase amount. Mined or node rewards coins on main chain in Flux units.
+                      totalMiningFees:
+                        type: number
+                        description: >-
+                          Total fees that are paid for claiming of mining rewards.
+                      totalSwapFees:
+                        type: boolean
+                        description: >-
+                          Total fees that will be paid to perform swap operation.
+                      totalFee:
+                        type: number
+                        description: >-
+                          Sum of both mining and swap fee. Total fee that will be paid.
+                      totalReward:
+                        type: number
+                        description: >-
+                          Total amount of Flux that will be received.
+              example:
+                status: success
+                data:
+                  address: t3KDMzwmQLfrgxysKRsn9ZkKd7cLorrmKwL
+                  totalClaim: 150000
+                  totalMiningFees: 10
+                  totalSwapFees: 300
+                  totalFee: 310
+                  totalReward: 149690
   /coinbase/available:
     post:
       tags:
@@ -1278,6 +1345,57 @@ paths:
               example:
                 status: success
                 data: "0xdc1ea3f3fb2c788ba88d0b90ff88e613c1ea1fdcd83af53debf41c9b6bb49b69"
+  /coinbase/multiclaim:
+    post:
+      tags:
+        - Coinbase
+      summary: Claim all coinbase rewards
+      description: Claims all coinbase (mining) rewards for a given address on all chains, performs a swap and sends the funds to the given address
+      operationId: coinbasemulticlaim
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                  description: Main chain address for which to claim rewards
+                message:
+                  type: string
+                  description: Obtained message phrase that address was signing
+                signature:
+                  type: string
+                  description: Signature of message signed by address.
+                redeemScript:
+                  type: string
+                  description: Redeem script for possible multisig address
+                publicKey:
+                  type: string
+                  description: Public key that signed message for possible multisig address
+            example:
+              address: t3KDMzwmQLfrgxysKRsn9ZkKd7cLorrmKwL
+              message: 1630141888587p0z5ck835iiovp60ij0xg30c0zak6avh2fsp1avytg8
+              signature: IDm63BMnQNoVY75K130GB8PkSPPrbloFOrnyYIpTEQowVDZj/MXoPf6ZkZXA9Obv1oLRsXK3pkVe1I44pR0vAIA=
+              redeemScript: 522102915d75c2b8852bdbb163a1d131523ae89f450cadf740f5e0c7f6824a003d1bfe2102f2bd31899a2a6f99843b1e5899879b3812f9be2636588acd3ebd8573938f9c8852ae
+              publicKey: 02f2bd31899a2a6f99843b1e5899879b3812f9be2636588acd3ebd8573938f9c88
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: "#/components/schemas/status"
+                  data:
+                    type: string
+                    description: Transaction ID of multi coinbase claim
+              example:
+                status: success
+                data: "cfcf9b61a5a6e21ffeb7ddf367947e333a69214e8d807b311a07f6d7cd210d62"
   /swap/stats:
     get:
       tags:
