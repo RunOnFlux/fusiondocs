@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.1.0
+  version: 1.2.0
   title: Fusion
   contact:
     email: tadeas@runonflux.io
@@ -1374,12 +1374,16 @@ paths:
                 publicKey:
                   type: string
                   description: Public key that signed message for possible multisig address
+                zelid:
+                  type: string
+                  description: Zel ID of the user that is claiming the rewards
             example:
               address: t3KDMzwmQLfrgxysKRsn9ZkKd7cLorrmKwL
               message: 1630141888587p0z5ck835iiovp60ij0xg30c0zak6avh2fsp1avytg8
               signature: IDm63BMnQNoVY75K130GB8PkSPPrbloFOrnyYIpTEQowVDZj/MXoPf6ZkZXA9Obv1oLRsXK3pkVe1I44pR0vAIA=
               redeemScript: 522102915d75c2b8852bdbb163a1d131523ae89f450cadf740f5e0c7f6824a003d1bfe2102f2bd31899a2a6f99843b1e5899879b3812f9be2636588acd3ebd8573938f9c8852ae
               publicKey: 02f2bd31899a2a6f99843b1e5899879b3812f9be2636588acd3ebd8573938f9c88
+              zelid: 1CbErtneaX2QVyUfwU7JGB7VzvPgrgc3uC
       responses:
         "200":
           description: OK
