@@ -1,9 +1,9 @@
 {
   "name": "fusiondocs",
-  "version": "1.2.0",
-  "author": "Influx Technologies Limited",
+  "version": "2.0.0",
+  "author": "InFlux Technologies Limited",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/runonflux/fusiondocs.git"
@@ -16,12 +16,11 @@
     }
   ],
   "scripts": {
-    "start": "swagger-repo serve",
-    "build": "swagger-repo build -o web_deploy",
-    "test": "swagger-repo validate",
-    "gh-pages": "swagger-repo gh-pages"
+    "start": "redocly preview-docs",
+    "build": "redocly bundle -o dist/bundle.yaml",
+    "test": "redocly lint"
   },
   "dependencies": {
-    "swagger-repo": "^2.0.0-rc.15"
+    "@redocly/cli": "^1.25.7"
   }
 }

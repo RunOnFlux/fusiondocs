@@ -1,6 +1,4 @@
 # Fusion documentation - OpenAPI Specification
-[![Build Status](https://app.travis-ci.com/runonflux/fusiondocs.svg?branch=master)](https://travis-ci.com/runonflux/fusiondocs)
-
 [Fusion](https://github.com/runonflux/fusion/)
 
 ## Links
